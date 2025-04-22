@@ -1,25 +1,10 @@
-import { useEffect, useState } from "react";
 import { Transaction } from "../types/Transaction";
-import api from "../services/api";
 
-export default function TransactionList() {
-    const [transacoes, setTransacoes] = useState<Transaction[]>([]);
+interface Props {
+    transacoes: Transaction[];
+}
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await api.get('/transacoes');
-                setTransacoes(response.data);
-
-            } catch (error) {
-                console.error('Erro ao buscar transações:', error);
-            }
-        }
-
-        fetchData();
-    }, []);
-    
-
+export default function TransactionList({ transacoes }: Props) {
     return (
         <div>
             <h2>Minhas Transações</h2>
@@ -32,5 +17,5 @@ export default function TransactionList() {
                 ))}
             </ul>
         </div>
-    )
+    );
 }
