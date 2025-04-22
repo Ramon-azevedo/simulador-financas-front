@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px' }} id='campo1'>
       <h1>Simulador de Finanças</h1>
       <BalanceCard transacoes={transacoes} />
       <TransactionForm onTransacaoAdicionada={fetchTransacoes} />

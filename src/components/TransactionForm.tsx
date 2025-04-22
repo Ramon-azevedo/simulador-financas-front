@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Transaction } from '../types/Transaction';
 import api from '../services/api';
+import './TransactionForm.css'
 
 interface Props {
   onTransacaoAdicionada: () => void;
@@ -31,7 +32,7 @@ export default function TransactionForm({ onTransacaoAdicionada }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id='form1'>
       <input name="descricao" placeholder="Descrição" value={form.descricao} onChange={handleChange} />
       <input name="valor" type="number" placeholder="Valor" value={form.valor} onChange={handleChange} />
       <select name="tipo" value={form.tipo} onChange={handleChange}>
